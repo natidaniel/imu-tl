@@ -1,0 +1,6 @@
+conda create -n imu-tl-venv python==3.7
+conda activate imu-tl-venv
+conda install -n imu-tl-venv pytorch==1.6.0 torchvision==0.7.0 cudatoolkit=10.1 -c pytorch
+conda install  -n imu-tl-venv -c conda-forge matplotlib
+conda install  -n imu-tl-venv -c anaconda pandas
+conda install  -n imu-tl-venv -c anaconda scikit-learn

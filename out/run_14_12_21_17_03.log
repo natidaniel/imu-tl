@@ -1,0 +1,41 @@
+[14-12-21 17:03] [INFO] - Start learning-based inertial-based activity recognition
+[14-12-21 17:03] [INFO] - Using imu dataset file: /data/Users/Nati/IMUTL/Datasets/GPS/3_classes/GPS_test_set.csv
+[14-12-21 17:03] [INFO] - Running with configuration:
+	n_freq_print: 20
+	n_freq_checkpoint: 10
+	n_workers: 4
+	device_id: cuda:0
+	experiment: description of experiment
+	is_data_header: 0
+	input_dim: 3
+	window_size: 50
+	window_shift: 50
+	batch_size: 32
+	lr: 0.0001
+	weight_decay: 0.0001
+	eps: 1e-10
+	lr_scheduler_step_size: 3
+	lr_scheduler_gamma: 0.5
+	n_epochs: 10
+	use_gps: True
+	imu-transformer: {'encode_position': True, 'transformer_dim': 64, 'nhead': 8, 'num_encoder_layers': 6, 'num_decoder_layers': 6, 'dim_feedforward': 128, 'transformer_dropout': 0.1, 'transformer_activation': 'gelu', 'head_activation': 'gelu'}
+	imu-cnn: {'dropout': 0.1, 'latent_dim': 64}
+	imu-lstm: {'lstm_hidden_dim': 16, 'dropout': 0.1, 'latent_dim': 64}
+	imu-resnet: {'fc_dim': 2048, 'dropout': 0.5, 'kernel_size': 3, 'base_plane': 32, 'filter': None, 'downsampling': False, 'zero_init_residual': False}
+[14-12-21 17:03] [INFO] - Prepare dataset
+[14-12-21 17:03] [INFO] - Found 3 unique classes,
+[14-12-21 17:03] [INFO] - Class Walk [id 1] mapped to id 0
+[14-12-21 17:03] [INFO] - Class Bike [id 2] mapped to id 1
+[14-12-21 17:03] [INFO] - Class Vehicle [id 3] mapped to id 2
+[14-12-21 17:03] [INFO] - Number of windows: 15608 (generated from 15608 windows of size 50 with shift 50)
+[14-12-21 17:03] [INFO] - Train model: imu-transformer, Trainable params: 218243
+[14-12-21 17:03] [INFO] - Initializing from checkpoint: out/run_14_12_21_16_49_final.pth
+[14-12-21 17:03] [INFO] - Data preparation completed
+[14-12-21 17:03] [INFO] - Start inference
+[14-12-21 17:04] [INFO] - Evaluation for test dataset is completed with run time: 69.78047800064087 seconds
+[14-12-21 17:04] [INFO] - Performance for class [Walk]/ id [1] - accuracy 0.525
+[14-12-21 17:04] [INFO] - Performance for class [Bike]/ id [2] - accuracy 0.274
+[14-12-21 17:04] [INFO] - Performance for class [Vehicle]/ id [3] - accuracy 0.627
+[14-12-21 17:04] [INFO] - Performance on test dataset (file: /data/Users/Nati/IMUTL/Datasets/GPS/3_classes/GPS_test_set.csv)
+	Accuracy: 0.483
+[14-12-21 17:04] [INFO] - results saved to: out/run_14_12_21_16_49_final.pth_test_results_dump.npz

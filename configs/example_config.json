@@ -1,0 +1,56 @@
+{
+	"n_freq_print": 20,
+	"n_freq_checkpoint": 10,
+	"n_workers": 4,
+	"device_id": "cuda:0",
+	"experiment": "description of experiment",
+
+	"is_data_header": 0,
+	"input_dim": 6,
+	"window_size":50,
+    "window_shift": 50,
+
+	"batch_size": 32,
+	"lr": 1e-4,
+	"weight_decay":1e-04,
+	"eps": 1e-10,
+	"lr_scheduler_step_size": 3,
+	"lr_scheduler_gamma": 0.5,
+	"n_epochs": 10,
+
+	"use_gps": true,
+
+	"imu-transformer":
+	{
+		"encode_position":true,
+		"transformer_dim": 64,
+		"nhead": 8,
+		"num_encoder_layers": 6,
+		"num_decoder_layers": 6,
+		"dim_feedforward": 128,
+		"transformer_dropout": 0.1,
+		"transformer_activation": "gelu",
+		"head_activation": "gelu"
+	},
+	"imu-cnn":
+	{
+		"dropout": 0.1,
+		"latent_dim": 64
+	},
+	"imu-lstm":
+	{
+		"lstm_hidden_dim": 16,
+		"dropout": 0.1,
+		"latent_dim": 64
+	},
+	"imu-resnet":
+	{
+		"fc_dim": 2048,
+		"dropout": 0.5,
+		"kernel_size": 3,
+		"base_plane": 32,
+		"filter": null,
+		"downsampling": false,
+		"zero_init_residual": false
+	}
+}

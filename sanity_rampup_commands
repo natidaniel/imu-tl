@@ -1,0 +1,40 @@
+Argumenets for main.py
+# sanity train from scratch
+train
+imu-cnn
+/data/Users/Nati/IMUTL/Datasets/DataSync/HAR1_train.csv
+configs/example_config.json
+
+# ==> You should have a model called xx_final.pth in out folder (xx = date stamp)
+
+# sanity test
+test
+imu-cnn
+/data/Users/Nati/IMUTL/Datasets/DataSync/HAR1_test.csv
+configs/example_config.json
+--pretrained_path out/run_08_07_21_17_04_final.pth  # replace with path to your saved model
+
+
+# sanity transfer learning initializing from pre-trained weights
+transfer
+imu-cnn
+/data/Users/Nati/IMUTL/Datasets/DataSync/HAR2_train.csv
+configs/example_config.json
+--pretrained_path out/run_08_07_21_17_04_final.pth
+
+# sanity transfer learning with fine tune
+transfer
+imu-cnn
+/data/Users/Nati/IMUTL/Datasets/DataSync/HAR2_train.csv
+configs/example_config.json
+--pretrained_path out/run_08_07_21_17_04_final.pth
+--finetune
+
+# ==> You should have another model saved to your folder
+
+# sanity test
+test
+imu-cnn
+/data/Users/Nati/IMUTL/Datasets/DataSync/HAR2_test.csv
+configs/example_config.json
+--pretrained_path out/run_08_07_21_xx_xx_final.pth   <-name of model from transfer learning training
